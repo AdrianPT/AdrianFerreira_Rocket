@@ -73,12 +73,15 @@ namespace RocketLanding_AFerreiraPT
                 endpoints.MapControllers();
             });
 
+            app.UseStaticFiles();
+
             // To show in the root
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "RocketLanding AFerreiraPT API");
                 c.RoutePrefix = string.Empty;
             });
+       
 
         }
     }

@@ -1,6 +1,8 @@
-﻿namespace RocketLanding_AFerreiraPT.Models
+﻿using RocketLanding_AFerreiraPT.Models.Interfaces;
+
+namespace RocketLanding_AFerreiraPT.Models
 {
-    public struct Position
+    public struct Position : IDimension
     {
         public int x;
         public int y;
@@ -13,8 +15,6 @@
             this.z = z;
 
         }
-
-
 
     }
 
