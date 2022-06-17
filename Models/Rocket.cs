@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RocketLanding_AFerreiraPT.Models.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace RocketLanding_AFerreiraPT.Models
 {
@@ -8,10 +9,10 @@ namespace RocketLanding_AFerreiraPT.Models
         public string Name { get; set; }
 
         [Required]
-        public Position CurrentPosition { get; set; }
+        public IDimension CurrentPosition { get; set; }
 
         [Required]
-        public Position LandCheckPosition { get; set; }
+        public IDimension LandCheckPosition { get; set; }
         public LandingStatus Status { get; set; }
 
     }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RocketLanding_AFerreiraPT.Hubs;
 
 namespace RocketLanding_AFerreiraPT
 {
@@ -29,7 +30,7 @@ namespace RocketLanding_AFerreiraPT
 
             services.AddControllers();
 
-
+            services.AddSignalR();
 
             services.AddSwaggerGen(c =>
             {
@@ -81,7 +82,15 @@ namespace RocketLanding_AFerreiraPT
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "RocketLanding AFerreiraPT API");
                 c.RoutePrefix = string.Empty;
             });
-       
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHub<RocketHub>(pattern: "/RocketHub/notifications");
+
+            });
+
 
         }
     }

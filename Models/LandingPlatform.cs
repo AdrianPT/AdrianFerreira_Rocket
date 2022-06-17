@@ -1,17 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using RocketLanding_AFerreiraPT.Models.Interfaces;
 
 namespace RocketLanding_AFerreiraPT.Models
 {
     public class LandingPlatform : ILand
     {
-        public Size _size { get; set; }
-        public Position InitialPosition { get; set; }
-        public Position FinalPosition => 
-            new Position(InitialPosition.x + _size.Width,
-                         InitialPosition.y +_size.Height,
-                         InitialPosition.z );
+        public IDimension InitialPosition { get; set; }
+        public IDimension _size { get; set; }
 
         public List<ILand> GetContent()
         {

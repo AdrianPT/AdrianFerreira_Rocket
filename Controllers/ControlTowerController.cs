@@ -41,9 +41,25 @@ namespace RocketLanding_AFerreiraPT.Controllers
             return "teste";
         }
 
+        //La clave está en recibir los parametros
+        //y a partir de ahi crear los objetos que necesito
+        //y enviar los objetos solo cuando sea posible
 
 
+        /*
+        [HttpGet("api/character/hero")]
+        public Character GetCharacter(string name, string heType)
+        {
+            Hero ch = new Hero(name, searchHeroType(heType));
+            ch.setPosition(new Position { x = 0, y = 0, z = 0 });
+            gam.Height = 10;
+            gam.Width = 10;
+            gam.Join(ch);
+            ch.myGameZone = gam;
+            ch.ItemThatIHave = new Weapon() { Name = "Special Sword" };
 
+            return ch;
+        }*/
 
 
 
