@@ -6,11 +6,17 @@ namespace RocketLanding_AFerreiraPT.Hubs
 {
     public class RocketHub : Hub
     {
-        public async Task SendMessage(LandingMessage message,string userId)
+        public async Task UpdateLandingStatus(string userId, Rocket spaceCraft)
         {
 
 
-            await Clients.User(userId).SendAsync("ReceiveMessage", message);
+
+
+            //Logic LandingStatus
+
+
+
+            await Clients.User(userId).SendAsync("LandingStatus", spaceCraft.Status);
         }
 
     }

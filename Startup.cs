@@ -87,6 +87,7 @@ namespace RocketLanding_AFerreiraPT
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                ///RocketHub/notifications?id=0
                 endpoints.MapHub<RocketHub>(pattern: "/RocketHub/notifications");
 
             });

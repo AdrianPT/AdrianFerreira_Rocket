@@ -6,6 +6,7 @@ namespace RocketLanding_AFerreiraPT.Models
     public class Rocket
     {
         [Required]
+        public string RocketId { get; set; }
         public string Name { get; set; }
 
         [Required]
