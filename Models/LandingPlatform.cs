@@ -7,23 +7,22 @@ namespace RocketLanding_AFerreiraPT.Models
 {
     public class LandingPlatform : ILand
     {
+        public string Name { get; set; }
         public IDimension InitialPosition { get; set; }
         public IDimension _size { get; set; }
-
-        public List<ILand> GetContent()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public StringBuilder GetDescription()
-        {
-            throw new System.NotImplementedException();
-        }
+        public ulong[][] Land { get; set; }
 
         public bool IsLandingPlatform()
         {
-            throw new System.NotImplementedException();
+            return true;
         }
+
+        public LandingPlatform() { }
+        public LandingPlatform(string _name)
+        {
+            Name = _name;
+        }
+
     }
 
 }

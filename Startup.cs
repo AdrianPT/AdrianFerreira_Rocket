@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RocketLanding_AFerreiraPT.Hubs;
+using RocketLanding_AFerreiraPT.Factories;
+using RocketLanding_AFerreiraPT.Factories.Interfaces;
 
 namespace RocketLanding_AFerreiraPT
 {
@@ -27,6 +29,15 @@ namespace RocketLanding_AFerreiraPT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Tablero disponible a lo largo de toda la app (Ver como hacer persistente)
+            //services.AddSingleton<ILandingService, LandingService>();
+            //services.AddSingleton<IRocketService, RocketService>();
+
+            //factories
+            services.AddScoped<ILandModelFactory, LandModelFactory>();
+            services.AddScoped<ISpaceVehicleModelFactory, SpaceVehicleModelFactory>();
+
+      
 
             services.AddControllers();
 
@@ -68,11 +79,6 @@ namespace RocketLanding_AFerreiraPT
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
 
             app.UseStaticFiles();
 

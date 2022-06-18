@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using RocketLanding_AFerreiraPT.Factories.Interfaces;
 using RocketLanding_AFerreiraPT.Hubs;
 using RocketLanding_AFerreiraPT.Models;
 using System.Threading.Tasks;
@@ -11,6 +12,17 @@ namespace RocketLanding_AFerreiraPT.Controllers
     public class ControlTowerController : ControllerBase
     {
 
+        private readonly ILandModelFactory _landModelFactory;
+        private readonly ISpaceVehicleModelFactory _spaceVehicleModelFactory;
+     
+
+        public ControlTowerController(
+            ILandModelFactory landModelFactory,
+            ISpaceVehicleModelFactory spaceVehicleModelFactory)
+        {
+            _landModelFactory = landModelFactory;
+            _spaceVehicleModelFactory = spaceVehicleModelFactory;
+        }
 
 
         /// <summary>
@@ -44,7 +56,25 @@ namespace RocketLanding_AFerreiraPT.Controllers
             return "teste";
         }
 
-       
+        //La clave está en recibir los parametros
+        //y a partir de ahi crear los objetos que necesito
+        //y enviar los objetos solo cuando sea posible
+
+
+        /*
+        [HttpGet("api/character/hero")]
+        public Character GetCharacter(string name, string heType)
+        {
+            Hero ch = new Hero(name, searchHeroType(heType));
+            ch.setPosition(new Position { x = 0, y = 0, z = 0 });
+            gam.Height = 10;
+            gam.Width = 10;
+            gam.Join(ch);
+            ch.myGameZone = gam;
+            ch.ItemThatIHave = new Weapon() { Name = "Special Sword" };
+
+            return ch;
+        }*/
 
 
 

@@ -2,15 +2,15 @@
 
 namespace RocketLanding_AFerreiraPT.Models
 {
-    public struct Size : IDimension
+    public class Size : IDimension
     {
-        public int widht;
-        public int height;
+        public int x { get; set; }
+        public int y { get; set; }
 
-        public Size(int widht, int height)
+        public Size(int x, int y)
         {
-            this.widht = widht;
-            this.height = height;
+            this.x = x;
+            this.y = y;
 
         }
 
