@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 using RocketLanding_AFerreiraPT.Factories.Interfaces;
 using RocketLanding_AFerreiraPT.Hubs;
 using RocketLanding_AFerreiraPT.Models;
+using RocketLanding_AFerreiraPT.Services.Interfaces;
 using System.Threading.Tasks;
 
 namespace RocketLanding_AFerreiraPT.Controllers
@@ -14,14 +15,16 @@ namespace RocketLanding_AFerreiraPT.Controllers
 
         private readonly ILandModelFactory _landModelFactory;
         private readonly ISpaceVehicleModelFactory _spaceVehicleModelFactory;
-     
+        private readonly IControlTowerService _controlTowerService;
 
         public ControlTowerController(
             ILandModelFactory landModelFactory,
-            ISpaceVehicleModelFactory spaceVehicleModelFactory)
+            ISpaceVehicleModelFactory spaceVehicleModelFactory,
+            IControlTowerService controlTowerService)
         {
             _landModelFactory = landModelFactory;
             _spaceVehicleModelFactory = spaceVehicleModelFactory;
+            _controlTowerService = controlTowerService;
         }
 
 

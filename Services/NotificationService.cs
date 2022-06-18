@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using RocketLanding_AFerreiraPT.Hubs;
 using RocketLanding_AFerreiraPT.Models;
+using RocketLanding_AFerreiraPT.Services.Interfaces;
 using System.Threading.Tasks;
 
-namespace RocketLanding_AFerreiraPT.ServiceLayer
+namespace RocketLanding_AFerreiraPT.Services
 {
-    public class NotificationService
+    public class NotificationService : INotificationService
     {
 
         private readonly IHubContext<RocketHub> _hubContext;

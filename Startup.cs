@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using RocketLanding_AFerreiraPT.Hubs;
 using RocketLanding_AFerreiraPT.Factories;
 using RocketLanding_AFerreiraPT.Factories.Interfaces;
+using RocketLanding_AFerreiraPT.Services.Interfaces;
+using RocketLanding_AFerreiraPT.Services;
 
 namespace RocketLanding_AFerreiraPT
 {
@@ -33,11 +35,16 @@ namespace RocketLanding_AFerreiraPT
             //services.AddSingleton<ILandingService, LandingService>();
             //services.AddSingleton<IRocketService, RocketService>();
 
+            services.AddSingleton<IControlTowerService, ControlTowerService>();
+            services.AddScoped<INotificationService, NotificationService>();
+
             //factories
             services.AddScoped<ILandModelFactory, LandModelFactory>();
             services.AddScoped<ISpaceVehicleModelFactory, SpaceVehicleModelFactory>();
+           
+            
 
-      
+
 
             services.AddControllers();
 

@@ -8,7 +8,7 @@ namespace RocketLanding_AFerreiraPT.Models
         public ControlTower myControlTower { get; set; }
 
         [Required]
-        public string RocketId { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
 
         [Required]
