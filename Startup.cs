@@ -31,19 +31,18 @@ namespace RocketLanding_AFerreiraPT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Tablero disponible a lo largo de toda la app (Ver como hacer persistente)
-            //services.AddSingleton<ILandingService, LandingService>();
-            //services.AddSingleton<IRocketService, RocketService>();
 
-            services.AddSingleton<IControlTowerService, ControlTowerService>();
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<ILandService, LandService>();
+            services.AddScoped<ISpaceVehicleService, SpaceVehicleService>();
+
+            services.AddScoped<IControlTowerService, ControlTowerService>();
+
 
             //factories
             services.AddScoped<ILandModelFactory, LandModelFactory>();
             services.AddScoped<ISpaceVehicleModelFactory, SpaceVehicleModelFactory>();
-           
             
-
 
 
             services.AddControllers();

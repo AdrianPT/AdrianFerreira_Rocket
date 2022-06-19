@@ -28,6 +28,10 @@ namespace RocketLanding_AFerreiraPT.Controllers
         }
 
 
+
+        // Via service definir actions 
+        // Create land,create rockets, add to controltower, cheklanding
+
         /// <summary>
         /// Creates a TodoItem.
         /// </summary>

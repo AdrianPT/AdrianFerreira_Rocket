@@ -6,11 +6,11 @@ namespace RocketLanding_AFerreiraPT.Factories
     public class SpaceVehicleModelFactory: ISpaceVehicleModelFactory
     {
 
-        public ISpaceVehicle GetSpaceVehicle(string name, SpaceType spaceType)
+        public ISpaceVehicle GetSpaceVehicle(int id, SpaceType spaceType)
         {
             switch (spaceType)
             {
-                case SpaceType.Rocket: return new Rocket(name);
+                case SpaceType.Rocket: return new Rocket(id);
                 default: return null;
             }
           

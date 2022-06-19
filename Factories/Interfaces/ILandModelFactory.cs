@@ -4,6 +4,6 @@ namespace RocketLanding_AFerreiraPT.Factories.Interfaces
 {
     public interface ILandModelFactory
     {
-        public ILand GetLand(string name, LandType landType);
+        public ILand GetLand(int id, LandType landType);
     }
 }

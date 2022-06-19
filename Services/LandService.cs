@@ -9,12 +9,12 @@ namespace RocketLanding_AFerreiraPT.Services
 
         public void Add(LandingArea area, ILand cont)
         {
-            area._content.Add(cont);
+            area._content.Add(cont.Id,cont);
         }
 
         public void Remove(LandingArea area, ILand cont)
         {
-            area._content.Add(cont);
+            area._content.Remove(cont.Id);
         }
 
 

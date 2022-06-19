@@ -8,7 +8,7 @@ namespace RocketLanding_AFerreiraPT.Models
         public ControlTower myControlTower { get; set; }
 
         [Required]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
         [Required]
@@ -22,6 +22,10 @@ namespace RocketLanding_AFerreiraPT.Models
         
         }
 
+        public Rocket(int _id)
+        {
+            Id = _id;
+        }
         public Rocket(string _name)
         {
             Name = _name;
