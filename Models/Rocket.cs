@@ -5,7 +5,7 @@ namespace RocketLanding_AFerreiraPT.Models
 {
     public class Rocket : ISpaceVehicle
     {
-        public ControlTower myControlTower { get; set; }
+        public ILandingControlTower myControlTower { get; set; }
 
         [Required]
         public int Id { get; set; }
@@ -18,17 +18,32 @@ namespace RocketLanding_AFerreiraPT.Models
         public IDimension LandCheckPosition { get; set; }
         public LandingStatus Status { get; set; }
 
-        public Rocket() { 
-        
+        public Rocket() {
+            Id = 0;
+            CurrentPosition = new Position();
+            LandCheckPosition = new Position();
         }
 
         public Rocket(int _id)
         {
             Id = _id;
+            CurrentPosition = new Position();
+            LandCheckPosition = new Position();
         }
-        public Rocket(string _name)
+        public Rocket(int _id,string _name)
         {
+            Id = _id;
             Name = _name;
+            CurrentPosition=new Position();
+            LandCheckPosition = new Position();
+        }
+
+        public Rocket(int _id, Position _landCheck)
+        {
+            Id = _id;
+            Name = "";
+            CurrentPosition = new Position();
+            LandCheckPosition = _landCheck;
         }
 
     }

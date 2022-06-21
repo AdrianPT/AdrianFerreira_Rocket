@@ -1,4 +1,5 @@
 ﻿using RocketLanding_AFerreiraPT.Models;
+using RocketLanding_AFerreiraPT.Models.Interfaces;
 using System.Collections.Generic;
 
 namespace RocketLanding_AFerreiraPT.Services.Interfaces
@@ -7,6 +8,6 @@ namespace RocketLanding_AFerreiraPT.Services.Interfaces
     {
         public void Add(LandingArea area, ILand cont);
         public void Remove(LandingArea area, ILand cont);
-
+        public bool isInside(ILand platAux, IDimension landCheckPosition);
     }
 }

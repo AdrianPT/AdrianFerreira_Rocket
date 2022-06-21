@@ -4,7 +4,7 @@ namespace RocketLanding_AFerreiraPT.Models
 {
     public interface ISpaceVehicle
     {
-        public ControlTower myControlTower { get; set; }
+        public ILandingControlTower myControlTower { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public IDimension CurrentPosition { get; set; }

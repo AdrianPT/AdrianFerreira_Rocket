@@ -2,11 +2,13 @@
 
 namespace RocketLanding_AFerreiraPT.Models
 {
-    public enum LandType
+    public enum LandingStatus
     {
-        [Description("Landing Area")]
-        LandingArea,
-        [Description("Platform")]
-        Platform
+        [Description("ok for landing.")]
+        OK,
+        [Description("out of platform.")]
+        Out,
+        [Description("clash")]
+        Clash
     }
 }

@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using RocketLanding_AFerreiraPT.Models.Interfaces;
+using System.Collections.Generic;
 
 namespace RocketLanding_AFerreiraPT.Models
 {
     public interface ILandingControlTower
     {
-        public Dictionary<int, Rocket> _rocketsInSpace { get; set; }
-        public ILand _land { get; set; }
-        public Dictionary<Position, Rocket> checkedPositions { get; set; }
+        public Dictionary<int, ISpaceVehicle> _rocketsInSpace { get; set; }
+        public LandingArea _land { get; set; }
+        public Dictionary<Position, ISpaceVehicle> checkedPositions { get; set; }
 
     }
 }

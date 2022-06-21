@@ -20,6 +20,7 @@ namespace RocketLanding_AFerreiraPT.Models
         public LandingArea() {
             _content=new Dictionary<int, ILand>(); 
         }
+
         public LandingArea(int _id) {
             Id = _id;
             _content = new Dictionary<int, ILand>();
@@ -32,15 +33,17 @@ namespace RocketLanding_AFerreiraPT.Models
             _content = new Dictionary<int, ILand>();
         }
 
-        public void Add(ILand _land)
+        public LandingArea(int _id, Size _size, Position _pos, string _name)
         {
-            _content.Add(_land.Id, _land);
+            Id = _id;
+            Name = _name;
+            InitialPosition = _pos;
+            this._size = _size;
+            _content = new Dictionary<int, ILand>();
+
         }
 
-        public void Remove(ILand _land)
-        {
-            _content.Remove(_land.Id);
-        }
+
 
 
     }

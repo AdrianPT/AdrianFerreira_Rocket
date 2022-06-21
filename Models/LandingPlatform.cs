@@ -17,27 +17,31 @@ namespace RocketLanding_AFerreiraPT.Models
             return true;
         }
 
-        public LandingPlatform() { 
- 
-        
+        public LandingPlatform() {
+            Id = 0;
+            Name = "";
+            InitialPosition = new Position();
+            _size = new Size();
         }
 
         public LandingPlatform(int _id)
         {
             Id = _id;
-          
+            Name = "";
+            InitialPosition = new Position();
+            _size = new Size();
+
         }
 
-        public LandingPlatform(int _id,string _name)
+        public LandingPlatform(int _id, Size _size,Position _pos,string _name)
         {
             Id = _id;
             Name = _name;
+            InitialPosition = _pos;
+            this._size = _size;
+
         }
 
-        public LandingPlatform(string _name)
-        {
-            Name = _name;
-        }
 
     }
 

@@ -5,7 +5,7 @@ namespace RocketLanding_AFerreiraPT.Factories
 {
     public class LandModelFactory : ILandModelFactory
     {
-        public ILand GetLand(int id, LandType landType)
+        public ILand CreateLand(int id, LandType landType)
         {
             switch (landType)
             {
@@ -15,6 +15,30 @@ namespace RocketLanding_AFerreiraPT.Factories
             }
 
         }
+
+
+        public ILand CreateLand(int id, LandType landType,
+            Size _size,Position _initialPosition,string _name="")
+        {
+
+            switch (landType)
+            {
+                case LandType.Platform: return new LandingPlatform(id, _size, _initialPosition, _name);
+                case LandType.LandingArea: return new LandingArea(id, _size, _initialPosition, _name);
+                default: return null;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
     }
 
 }

@@ -14,6 +14,14 @@ namespace RocketLanding_AFerreiraPT.Models
 
         }
 
+
+        public Size()
+        {
+            x = 0;
+            y = 0;
+
+        }
+
     }
 
 }
