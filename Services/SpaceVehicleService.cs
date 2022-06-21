@@ -5,7 +5,7 @@ namespace RocketLanding_AFerreiraPT.Services
 {
     public class SpaceVehicleService : ISpaceVehicleService
     {
-
+      
         public void ChangeCurrentPosition(ISpaceVehicle _rocket, 
             Position _newPosition)
         {

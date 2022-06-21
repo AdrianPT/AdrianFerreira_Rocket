@@ -44,6 +44,25 @@ namespace RocketLanding_AFerreiraPT.Services
 
         }
 
+        public void ChangeSize(ISpaceVehicle _rocket,Size _size) {
+
+            LandingPlatform _firstPlatform = null;
+
+            foreach (KeyValuePair<int, ILand> _iland in _rocket.myControlTower._land._content)
+            {
+                if (_iland.Value.IsLandingPlatform())
+                    _firstPlatform = (LandingPlatform)_rocket.myControlTower._land._content[_iland.Key];
+            }
+
+            if ((_firstPlatform != null) && (_firstPlatform.IsLandingPlatform()))
+            {
+                _firstPlatform._size = _size;
+                ChangeSize(_rocket.myControlTower._land, _firstPlatform);
+            }
+
+        }
+
+
         public bool isInside(ILand platform, IDimension _pos) {
  
             bool xInside = false;

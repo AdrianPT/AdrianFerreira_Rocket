@@ -16,21 +16,23 @@ namespace RocketLanding_AFerreiraPT.Controllers
         private readonly ILandModelFactory _landModelFactory;
         private readonly ISpaceVehicleModelFactory _spaceVehicleModelFactory;
         private readonly IControlTowerService _controlTowerService;
+        private readonly ILandService _landService;
+        private readonly ISpaceVehicleService _spaceVehicleService;
 
         public ControlTowerController(
             ILandModelFactory landModelFactory,
             ISpaceVehicleModelFactory spaceVehicleModelFactory,
-            IControlTowerService controlTowerService)
+            IControlTowerService controlTowerService
+            ,ILandService landService,
+            ISpaceVehicleService spaceVehicleService)
         {
             _landModelFactory = landModelFactory;
             _spaceVehicleModelFactory = spaceVehicleModelFactory;
-            _controlTowerService = controlTowerService;
+            _landService = landService;
+            _spaceVehicleService = spaceVehicleService;
+            _controlTowerService= controlTowerService;
         }
 
-
-
-        // Via service definir actions 
-        // Create land,create rockets, add to controltower, cheklanding
 
         /// <summary>
         /// Creates a TodoItem.
@@ -48,43 +50,46 @@ namespace RocketLanding_AFerreiraPT.Controllers
         ///     }
         ///
         /// </remarks>
-        /// <response code="201">Returns the newly created item</response>
-        /// <response code="400">If the item is null</response>
-
         [HttpPost("api/ControlTower/CheckLanding")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         //async - 
         public string CheckLanding(Rocket spaceCraft)
         {
-           
-
-
-            return "teste";
+            return _controlTowerService.CheckLanding(spaceCraft);
         }
 
-        //La clave está en recibir los parametros
-        //y a partir de ahi crear los objetos que necesito
-        //y enviar los objetos solo cuando sea posible
-
-
-        /*
-        [HttpGet("api/character/hero")]
-        public Character GetCharacter(string name, string heType)
+        [HttpPost("api/ControlTower/PlatformSizeChange")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //async - 
+        public void PlatformSizeChange(Rocket spaceCraft, Size newSize)
         {
-            Hero ch = new Hero(name, searchHeroType(heType));
-            ch.setPosition(new Position { x = 0, y = 0, z = 0 });
-            gam.Height = 10;
-            gam.Width = 10;
-            gam.Join(ch);
-            ch.myGameZone = gam;
-            ch.ItemThatIHave = new Weapon() { Name = "Special Sword" };
+            _landService.ChangeSize(spaceCraft, newSize);
 
-            return ch;
-        }*/
+        }
 
 
+        [HttpPost("api/ControlTower/ChangeCurrentPosition")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //async - 
+        public void ChangeCurrentPosition(Rocket spaceCraft,Position _pos)
+        {
+          _spaceVehicleService.ChangeCurrentPosition(spaceCraft,_pos);
 
+        }
 
+        [HttpPost("api/ControlTower/ChangeCheckPosition")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //async - 
+        public void ChangeCheckPosition(Rocket spaceCraft, Position _pos)
+        {
+            _spaceVehicleService.ChangeCheckPosition(spaceCraft, _pos);
+
+        }
+
+      
     }
 }

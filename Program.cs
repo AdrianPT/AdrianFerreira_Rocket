@@ -11,6 +11,8 @@ namespace RocketLanding_AFerreiraPT
 {
     public class Program
     {
+        // Adrián Ferreira 21/06/2022 Zartis Exercise
+        // inboxferreira@gmail.com
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
