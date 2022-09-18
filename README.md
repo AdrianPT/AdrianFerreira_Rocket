@@ -1,3 +1,3 @@
 # AdrianFerreira_RocketLanding
 
-Zartis tech interview
+Tech interview
